@@ -18,7 +18,7 @@ class Overview extends Component {
   };
 
   render() {
-    if (this.props.edit) {
+    if (this.props.isEditBtnShow) {
       return (
         <div>
           {this.props.tasks.map((task) => {
@@ -38,7 +38,7 @@ class Overview extends Component {
                     </span> 
                       <span className='block ml-12 bg-indigo-500'>
                       <i
-                        onClick={e => this.props.submit(task.id, this.state.data)}
+                        onClick={e => this.props.submitEdits(task.id, this.state.data)}
                         className="fa fa-paper-plane" aria-hidden="true"></i>
                     </span>
                   </p>
@@ -61,7 +61,7 @@ class Overview extends Component {
                     </span> 
                       <span className='block ml-12 bg-indigo-500'>
                        <i
-                         onClick={this.props.showSubmit} 
+                         onClick={this.props.showEditBtn} 
                          className="fas fa-edit"></i>
                     </span>
                   </p>
