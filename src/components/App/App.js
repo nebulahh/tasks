@@ -14,10 +14,9 @@ class App extends Component {
         count: 1,
       },
       tasks: [],
-      edit: false
+      isEditBtnShow: false
 
     };
-
 
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -28,13 +27,14 @@ class App extends Component {
     });
   }
 
-  handleEdit = (e) => {
+  showEditBtn = (e) => {
     this.setState({
       edit: true
     })
   }
 
-  submitEditTask = (id, newName) => {
+
+  submitEditedTask = (id, newName) => {
     this.setState({
       edit: false,
       task: this.state.tasks.map(task => {
@@ -89,9 +89,9 @@ class App extends Component {
         <Overview 
           tasks={tasks}
           onClick={this.handleDelete}
-          showSubmit={this.handleEdit}
-          edit={this.state.edit}
-          submit={this.submitEditTask}
+          showEditBtn={this.showEditBtn}
+          isEditBtnShow={this.state.edit}
+          submitEdits={this.submitEditedTask}
           change={this.handleChange} />
       </div>
     );
